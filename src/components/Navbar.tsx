@@ -68,12 +68,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <header className="shrink-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
+        <div className="flex items-center justify-between min-h-16 py-2 gap-2 sm:gap-4">
           
           {/* Zone 1: Brand title */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 min-w-0 shrink">
             <button 
               onClick={() => onTabChange('dashboard')}
               className="flex items-center gap-2 group text-left cursor-pointer focus:outline-none"
@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-sm shadow-emerald-200 dark:shadow-emerald-950 group-hover:scale-105 transition-transform">
                 <Flame className="w-5 h-5 text-amber-300 fill-amber-300" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                   FitTrack
                 </span>
@@ -92,31 +92,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
 
-          {/* Zone 2: Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 overflow-x-auto py-1">
-            {navItems.map(item => {
-              const active = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => onTabChange(item.id)}
-                  className={`flex items-center gap-2 px-3 py-2 text-xs xl:text-sm font-medium rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
-                    active 
-                      ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-semibold' 
-                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  <span className={active ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-500'}>
-                    {item.icon}
-                  </span>
-                  <span>{item.label}</span>
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* Zone 3: Global Date Stepper + Theme Toggle + Viva Kit + User */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Global Date Stepper + Theme Toggle + Viva Kit + User */}
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Global Date Control */}
             <div className="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-1 text-xs">
               <button
@@ -177,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Host Online & Deploy Button */}
             <button
               onClick={onOpenDeployGuide}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 rounded-lg text-xs font-semibold transition-all shadow-xs cursor-pointer"
+              className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 rounded-lg text-xs font-semibold transition-all shadow-xs cursor-pointer"
               title="View Live Online Website URL & Deployment Instructions"
             >
               <Globe className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -187,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* College Viva & Project Kit Button */}
             <button
               onClick={onOpenVivaKit}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 rounded-lg text-xs font-semibold transition-all shadow-xs cursor-pointer"
+              className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 rounded-lg text-xs font-semibold transition-all shadow-xs cursor-pointer"
               title="View Architecture, ER Diagrams, Flask Source Code & Viva Q&A"
             >
               <GraduationCap className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
@@ -218,14 +195,14 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Mobile Sub-Navigation Bar */}
-        <div className="lg:hidden flex items-center justify-between border-t border-slate-100 dark:border-slate-800 py-2 overflow-x-auto gap-2">
+        <nav className="flex items-center gap-1 xl:gap-2 border-t border-slate-100 dark:border-slate-800 py-2 overflow-x-auto">
           {navItems.map(item => {
             const active = activeTab === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => onTabChange(item.id)}
-                className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
+                className={`flex items-center gap-2 px-3 py-2 text-xs xl:text-sm font-medium rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
                   active 
                     ? 'bg-emerald-600 text-white' 
                     : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -236,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             );
           })}
-        </div>
+        </nav>
       </div>
     </header>
   );
