@@ -1,0 +1,6 @@
+{
+  "name": "FitTrack - Personal Fitness & Nutrition Tracker",
+  "description": "A modern, responsive fitness and nutrition tracker for students and beginners featuring daily calorie and protein tracking, workout logs, interactive calendar, consistency streaks, and progress reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
