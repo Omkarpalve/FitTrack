@@ -520,8 +520,8 @@ export function getMonthSummary(userId: string, year: number, month: number): Re
 export function seedDemoData(): User {
   const demoUser: User = {
     id: 'demo_user_alex',
-    username: 'alex_fittrack',
-    email: 'alex@college.edu',
+    username: 'varad_fittrack',
+    email: 'varad@college.edu',
     createdAt: new Date().toISOString()
   };
 
@@ -535,10 +535,10 @@ export function seedDemoData(): User {
   setItem(STORAGE_KEYS.USERS, users);
   setActiveUser(demoUser.id);
 
-  // Set Alex's goals
+  // Set Varad's goals
   const demoGoals: UserGoals = {
     userId: demoUser.id,
-    name: 'Alex Vance (Student)',
+    name: 'Varad (Student)',
     age: 21,
     height: 178,
     weight: 71.5,
@@ -562,14 +562,14 @@ export function seedDemoData(): User {
   allHabits.push(...demoHabits);
   setItem(STORAGE_KEYS.HABITS, allHabits);
 
-  // Seed past 12 days of realistic student meals, workouts, water, and habit completions
+  // Seed 14 days of realistic student meals, workouts, water, and habit completions
   const today = new Date();
   const newFoodLogs: FoodLog[] = [];
   const newWorkoutLogs: WorkoutLog[] = [];
   const newWaterLogs: WaterLog[] = [];
   const newCompletions: HabitCompletion[] = [];
 
-  for (let i = 11; i >= 0; i--) {
+  for (let i = 13; i >= 0; i--) {
     const curDate = new Date();
     curDate.setDate(today.getDate() - i);
     const dateStr = formatDate(curDate);

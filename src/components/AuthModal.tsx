@@ -87,7 +87,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onSuccess }) => {
             onClick={handleOneClickDemo}
             className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-xs transition-colors cursor-pointer flex items-center justify-center gap-1.5"
           >
-            <span>Log In as Demo Student "Alex"</span>
+            <span>Log In as Demo Student "Varad"</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -135,7 +135,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onSuccess }) => {
                 <UserIcon className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
                 <input 
                   type="text"
-                  placeholder="e.g. alex_fittrack or student"
+                  placeholder="e.g. varad_fittrack or student"
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
                   className="w-full text-xs pl-9 pr-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"

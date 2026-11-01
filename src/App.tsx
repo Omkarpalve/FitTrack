@@ -55,7 +55,7 @@ export default function App() {
     if (!user) {
       const allUsers = getUsers();
       if (allUsers.length === 0) {
-        // Auto-seed Demo Student Alex for instant presentation demonstration
+        // Auto-seed Demo Student Varad for instant presentation demonstration
         user = seedDemoData();
       } else {
         // Prompt login
